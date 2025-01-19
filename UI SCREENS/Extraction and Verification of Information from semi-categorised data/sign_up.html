@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c3dfe5;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #68a4ac;
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #d9ffd9;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #68a4ac;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-top: 1px solid #68a4ac;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #68a4ac;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .mobile-menu.active {
+                display: flex;
+            }
+        }
+
+        /* Login Section Styles */
+        .login-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 30px;
+            max-width: 900px;
+        }
+
+        .login-section img {
+            width: 600px;
+            height: 600px;
+            border-radius: 10px;
+        }
+
+        .login-form {
+            width: 50%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-form h2 {
+            margin: 0 0 20px;
+            text-align: center;
+        }
+
+        .login-form input {
+            width: 390px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #68a4ac;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-form button:hover {
+            background-color: #549197;
+        }
+
+        @media (max-width: 768px) {
+            .login-section {
+                flex-direction: column;
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .login-section img, .login-form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body >
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>SemiSmart Verify</h1>
+        <div class="navbar-links">
+            <a href="home.html">Home</a>
+            <a href="Admin_login.html">Admin Login</a>
+            <a href="User_login.html">User Login</a>
+            <a href="Sign_up.html">Sign Up</a>
+        </div>
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-menu">
+            <a href="home.html">Home</a>
+            <a href="Admin_login.html">Admin Login</a>
+            <a href="User_login.html">User Login</a>
+            <a href="Sign_up.html">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="login-section">
+        <img src="2.png" alt="Login Image">
+        <div class="login-form">
+            <h2>Sign Up</h2>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+                
+                <label for="security-question">Security Question</label>
+                <input type="text" id="security-question" name="security-question" placeholder="Enter your question" required>
+                
+                
+                <label for="security-answer">Security Answer</label>
+                <input type="text" id="security-answer" name="security-answer" placeholder="Enter your answer" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

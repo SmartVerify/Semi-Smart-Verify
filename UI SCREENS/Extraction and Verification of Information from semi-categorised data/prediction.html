@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Upload</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #c3dfe5;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+                /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #68a4ac;
+            color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #d9ffd9;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #68a4ac;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-top: 1px solid #68a4ac;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #68a4ac;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none; /* Hidden by default */
+            }
+
+            .mobile-menu.active {
+                display: flex; /* Show when active */
+            }
+        }
+        @media (max-width: 480px) {
+            img{
+                height: 500px;
+            }
+        }
+
+
+       
+        /* Flexbox layout for image and form */
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            flex-wrap: wrap; /* Ensures elements stack on smaller screens */
+        }
+
+        /* Left Side (Image) */
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+
+        /* Right Side (Form) */
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-container input[type="file"] {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 8px;
+        }
+
+        .form-container small {
+            display: block;
+            margin-top: 5px;
+            color: #888;
+        }
+
+        .form-container button {
+            background-color: #68a4ac;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #68a4ac;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .image-container {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+     <!-- Navbar -->
+     <div class="navbar">
+        <h1>SemiSmart Verify</h1>
+        <div class="navbar-links">
+            <a href="#">Home</a>
+            <a href="Prediction.html">Prediction</a>
+            <a href="home.html">Logout</a>
+        </div>
+        <div class="hamburger" onclick="toggleMobileMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="mobile-menu">
+            <a href="#">Home</a>
+            <a href="Prediction.html">Prediction</a>
+            <a href="home.html">Logout</a>
+        </div>
+    </div>
+    <div class="space">
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Left Section with Image -->
+        <div class="image-container">
+            <img src="2.png" alt="Placeholder Image">
+        </div>
+
+        <!-- Right Section with Form -->
+        <div class="form-container">
+            <h2 style="text-align: center;">Document Upload Form</h2>
+
+            <!-- Form Start -->
+            <form action="#" method="post" enctype="multipart/form-data">
+
+                <!-- PAN Card Upload Section -->
+                <div style="margin-bottom: 20px;">
+                    <label for="pan-card">Upload PAN Card</label>
+                    <input type="file" id="pan-card" name="pan-card">
+                    <small>Accepted formats: jpg, jpeg, png</small>
+                </div>
+
+                <!-- Aadhar Card Upload Section -->
+                <div style="margin-bottom: 20px;">
+                    <label for="aadhar-card">Upload Aadhar Card</label>
+                    <input type="file" id="aadhar-card" name="aadhar-card">
+                    <small>Accepted formats: jpg, jpeg, png</small>
+                </div>
+
+                <!-- Marks Memo Upload Section -->
+                <div style="margin-bottom: 20px;">
+                    <label for="marks-memo">Upload Marks Memo</label>
+                    <input type="file" id="marks-memo" name="marks-memo">
+                    <small>Accepted formats: jpg, jpeg, png</small>
+                </div>
+
+                <!-- Submit Button -->
+                <div style="text-align: center;">
+                    <button type="submit">Submit Documents</button>
+                </div>
+
+            </form>
+            <!-- Form End -->
+        </div>
+
+    </div>
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
