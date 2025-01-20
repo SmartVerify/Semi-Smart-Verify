@@ -50,7 +50,6 @@ An **Intelligent Document Processing (IDP)** system powered by AI, Machine Learn
 ## Technologies Used
 - **Programming Languages**: Python
 - **Libraries**: TensorFlow, OpenCV, Pytesseract, Pandas, NumPy
-- **Frameworks**: Flask
 - **Tools**: Figma for UI/UX design
 
 ---
